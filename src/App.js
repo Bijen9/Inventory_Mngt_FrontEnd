@@ -1,25 +1,30 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Sidebar from './components/Sidebar.jsx';
+import Dashboard from './pages/Dashboard.jsx';
+import Report from './pages/Report.jsx';
+import Receivers from './pages/Receivers.jsx';
+import Suppliers from './pages/Suppliers.jsx';
+import Products from './pages/Products.jsx';
+import UserControl from './pages/UserControl.jsx';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Sidebar>
+        <Routes>
+          <Route path="/" element={<Dashboard />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/report" element={<Report />} />
+          <Route path="/suppliers" element={<Suppliers />} />
+          <Route path="/receivers" element={<Receivers />} />
+          <Route path="/products" element={<Products />} />
+          <Route path="/usercontrol" element={<UserControl />} />
+        </Routes>
+      </Sidebar>
+    </BrowserRouter>
   );
-}
+};
 
 export default App;
