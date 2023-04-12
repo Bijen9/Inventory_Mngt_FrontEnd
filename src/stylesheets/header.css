@@ -1,0 +1,21 @@
+.header{
+    width:100%;
+    height: 7rem;
+    background-color: lightgrey;
+    display: flex;
+    border: 0px;
+    align-items: center;
+    justify-content: right;
+}
+h1{
+    align-self: center;
+    color: #0B2447;
+}
+h3{
+    align-self: center;
+    font-size: smaller;
+}
+.emblem{
+ height: 5rem;
+ padding: 1rem;
+}
