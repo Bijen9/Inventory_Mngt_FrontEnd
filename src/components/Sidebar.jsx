@@ -1,10 +1,12 @@
 import React, { useState } from "react";
-import { CiSettings, CiDeliveryTruck } from "react-icons/ci";
-import { AiOutlineBarChart } from "react-icons/ai";
+import { CiDeliveryTruck } from "react-icons/ci";
+import { FiUsers } from "react-icons/fi";
+import { HiOutlineClipboardDocumentList } from "react-icons/hi2";
 import { GoPackage } from "react-icons/go";
 import { RiUserReceived2Line } from "react-icons/ri";
-import { FaBars } from "react-icons/fa";
+import { FaBars, FaCog } from "react-icons/fa";
 import { RxDashboard } from "react-icons/rx";
+import { VscArrowSwap } from"react-icons/vsc";
 import { NavLink } from "react-router-dom";
 import "../stylesheets/Sidebar.css";
 
@@ -33,14 +35,19 @@ const Sidebar = ({ children }) => {
       icon: <RiUserReceived2Line />,
     },
     {
+      path: "/transactions",
+      name: "Transactions",
+      icon: <VscArrowSwap />,
+    },
+    {
       path: "/report",
       name: "Report",
-      icon: <AiOutlineBarChart />,
+      icon: <HiOutlineClipboardDocumentList />,
     },
     {
       path: "/usercontrol",
-      name: "User Control",
-      icon: <CiSettings />,
+      name: "Users",
+      icon: <FiUsers />,
     },
   ];
   return (
@@ -59,7 +66,7 @@ const Sidebar = ({ children }) => {
             to={item.path}
             key={index}
             className="link"
-            activeclassName="active"
+            activeClassName="active"
           >
             <div className="icon">{item.icon}</div>
             <div
@@ -70,6 +77,13 @@ const Sidebar = ({ children }) => {
             </div>
           </NavLink>
         ))}
+        <div className="settings">
+          <NavLink to="/settings" className="link">
+            <div className="icon settings-icon">
+              <FaCog />
+            </div>
+          </NavLink>
+        </div>
       </div>
       <main>{children}</main>
     </div>

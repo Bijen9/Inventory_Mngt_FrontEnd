@@ -9,7 +9,9 @@ import Report from './pages/Report.jsx';
 import Receivers from './pages/Receivers.jsx';
 import Suppliers from './pages/Suppliers.jsx';
 import Products from './pages/Products.jsx';
+import Transactions from './pages/Transactions.jsx';
 import UserControl from './pages/UserControl.jsx';
+import Settings from './pages/Settings.jsx';
 
 const App = () => {
   return (
@@ -23,7 +25,9 @@ const App = () => {
           <Route path="/suppliers" element={<Suppliers />} />
           <Route path="/receivers" element={<Receivers />} />
           <Route path="/products" element={<Products />} />
+          <Route path="/transactions" element={<Transactions />} />
           <Route path="/usercontrol" element={<UserControl />} />
+          <Route path="/settings" element={<Settings />} />
         </Routes>
       </Sidebar>
     </BrowserRouter>

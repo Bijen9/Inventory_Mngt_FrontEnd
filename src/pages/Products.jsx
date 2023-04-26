@@ -4,7 +4,7 @@ import Tabs from '../components/Tabs';
 const Products = () => {
     return (
         <div>
-            <h1>Products page</h1>
+            <h1>Products</h1>
             <Tabs />
         </div>
     );

@@ -17,7 +17,7 @@ main {
 .top_section {
   display: flex;
   align-items: center;
-  padding: 0.4rem;
+  padding: 0.9rem 0.9rem 0.9rem 0.4rem;
 }
 
 .logo {
@@ -35,8 +35,15 @@ main {
   display: flex;
   font-size: 25px;
   margin-left: 10px;
-  padding: 0.4rem;
+  padding: 0.7rem;
   padding-left: 0.3rem;
   transition: margin-left 0.5s;
   /* animate margin-left property */
+}
+
+.settings{
+  position: absolute;
+  bottom: 0px;
+  background-color: #0B2447;
+
 }
