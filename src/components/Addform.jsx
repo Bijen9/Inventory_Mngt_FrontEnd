@@ -1,50 +1,52 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
+import "../stylesheets/AddForm.css";
 
 function AddForm() {
-  const [category, setCategory] = useState('');
-  const [productName, setProductName] = useState('');
-  const [quantity, setQuantity] = useState('');
-  const [purchaseDate, setPurchaseDate] = useState('');
-  const [expiryDate, setExpiryDate] = useState('');
-  const [supplier, setSupplier] = useState('');
-  const [remarks, setRemarks] = useState('');
+  const [category, setCategory] = useState("");
+  const [productName, setProductName] = useState("");
+  const [quantity, setQuantity] = useState("");
+  const [purchaseDate, setPurchaseDate] = useState("");
+  const [expiryDate, setExpiryDate] = useState("");
+  const [supplier, setSupplier] = useState("");
+  const [remarks, setRemarks] = useState("");
+  const [formErrors, setFormErrors] = useState({});
 
   function handleSubmit(event) {
     event.preventDefault();
+    let errors = {};
     if (!category) {
-      alert('Please select Category to save changes');
-      return;
+      errors.category = "Please select a category";
     }
     if (!productName) {
-      alert('Please select Name of Product to save changes');
-      return;
+      errors.productName = "Please enter the name of the product";
     }
     if (!quantity) {
-      alert('Please select Quantity to save changes');
-      return;
+      errors.quantity = "Please enter the quantity";
     }
     if (!purchaseDate) {
-      alert('Please select Purchase Date to save changes');
-      return;
+      errors.purchaseDate = "Please select the purchase date";
     }
     if (!expiryDate) {
-      alert('Please select Expiry Date to save changes');
-      return;
+      errors.expiryDate = "Please select the expiry date";
     }
     if (!supplier) {
-      alert('Please select Supplier to save changes');
-      return;
+      errors.supplier = "Please select a supplier";
     }
-    // submit the form
-    alert('Form submitted!');
+    setFormErrors(errors);
+    if (Object.keys(errors).length === 0) {
+      // submit the form
+      alert("Form submitted!");
+    }
   }
 
   return (
     <div>
       <h2>Add Product Form</h2>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="form">
+        <label htmlFor="category">
+          Category<span className="required">*</span>
+        </label>
         <div className="form-group">
-          <label htmlFor="category">Category</label>
           <select
             id="category"
             name="category"
@@ -57,57 +59,82 @@ function AddForm() {
             <option value="Clothing">Clothing</option>
             <option value="Furniture">Furniture</option>
           </select>
+          {formErrors.category && (
+            <div className="error">{formErrors.category}</div>
+          )}
         </div>
+        <label htmlFor="productName">
+          Name of Product<span className="required">*</span>
+        </label>
         <div className="form-group">
-          <label htmlFor="productName">Name of Product</label>
           <input
             type="text"
             id="productName"
             name="productName"
-            className="form-control"
+            className={`form-control ${formErrors.productName ? "error" : ""}`}
             value={productName}
             onChange={(event) => setProductName(event.target.value)}
           />
+          {formErrors.productName && (
+            <div className="error">{formErrors.productName}</div>
+          )}
         </div>
+        <label htmlFor="quantity">
+          Quantity<span className="required">*</span>
+        </label>
         <div className="form-group">
-          <label htmlFor="quantity">Quantity</label>
           <input
             type="number"
             id="quantity"
             name="quantity"
-            className="form-control"
+            className={`form-control ${formErrors.quantity ? "error" : ""}`}
             value={quantity}
             onChange={(event) => setQuantity(event.target.value)}
           />
+          {formErrors.quantity && (
+            <div className="error">{formErrors.quantity}</div>
+          )}
         </div>
+        <label htmlFor="purchaseDate">
+          Purchase Date<span className="required">*</span>
+        </label>
         <div className="form-group">
-          <label htmlFor="purchaseDate">Purchase Date</label>
           <input
             type="date"
             id="purchaseDate"
             name="purchaseDate"
-            className="form-control"
+            className={`form-control ${formErrors.purchaseDate ? "error" : ""}`}
             value={purchaseDate}
             onChange={(event) => setPurchaseDate(event.target.value)}
           />
+          {formErrors.purchaseDate && (
+            <div className="error">{formErrors.purchaseDate}</div>
+          )}
         </div>
+        <label htmlFor="expiryDate">
+          Expiry Date<span className="required">*</span>
+        </label>
         <div className="form-group">
-          <label htmlFor="expiryDate">Expiry Date</label>
           <input
             type="date"
             id="expiryDate"
             name="expiryDate"
-            className="form-control"
+            className={`form-control ${formErrors.expiryDate ? "error" : ""}`}
             value={expiryDate}
             onChange={(event) => setExpiryDate(event.target.value)}
           />
+          {formErrors.expiryDate && (
+            <div className="error">{formErrors.expiryDate}</div>
+          )}
         </div>
+        <label htmlFor="supplier">
+          Supplier<span className="required">*</span>
+        </label>
         <div className="form-group">
-          <label htmlFor="supplier">Supplier</label>
           <select
             id="supplier"
             name="supplier"
-            className="        form-control"
+            className={`form-control ${formErrors.supplier ? "error" : ""}`}
             value={supplier}
             onChange={(event) => setSupplier(event.target.value)}
           >
@@ -116,13 +143,16 @@ function AddForm() {
             <option value="XYZ Company">XYZ Company</option>
             <option value="PQR Company">PQR Company</option>
           </select>
+          {formErrors.supplier && (
+            <div className="error">{formErrors.supplier}</div>
+          )}
         </div>
+        <label htmlFor="remarks">Remarks</label>
         <div className="form-group">
-          <label htmlFor="remarks">Remarks</label>
           <textarea
             id="remarks"
             name="remarks"
-            className="form-control"
+            className={`form-control ${formErrors.remarks ? "error" : ""}`}
             value={remarks}
             onChange={(event) => setRemarks(event.target.value)}
           ></textarea>
@@ -132,7 +162,7 @@ function AddForm() {
         </button>
       </form>
     </div>
-);
+  );
 }
 
-export default AddForm;    
+export default AddForm;
