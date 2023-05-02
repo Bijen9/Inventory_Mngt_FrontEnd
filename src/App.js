@@ -12,6 +12,7 @@ import Products from './pages/Products.jsx';
 import Transactions from './pages/Transactions.jsx';
 import UserControl from './pages/UserControl.jsx';
 import Settings from './pages/Settings.jsx';
+import Login from './components/Login.jsx';
 
 const App = () => {
   return (
@@ -21,6 +22,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Dashboard />} />
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/report" element={<Report />} />
           <Route path="/suppliers" element={<Suppliers />} />
           <Route path="/receivers" element={<Receivers />} />
@@ -28,6 +30,7 @@ const App = () => {
           <Route path="/transactions" element={<Transactions />} />
           <Route path="/usercontrol" element={<UserControl />} />
           <Route path="/settings" element={<Settings />} />
+
         </Routes>
       </Sidebar>
     </BrowserRouter>
@@ -35,3 +38,4 @@ const App = () => {
 };
 
 export default App;
+

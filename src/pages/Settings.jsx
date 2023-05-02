@@ -6,11 +6,6 @@ const Settings = () => {
     const history = createBrowserHistory();
 
     const handleLogout = () => {
-        // remove any authentication token or session data if necessary
-        localStorage.removeItem('authToken');
-    
-        // redirect user to login page
-        history.push('/login');
     };
 
   const handleChangePassword = () => {
@@ -41,3 +36,4 @@ const Settings = () => {
 };
 
 export default Settings;
+
