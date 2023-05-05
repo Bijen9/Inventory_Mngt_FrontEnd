@@ -1,13 +1,13 @@
-import React from 'react';
-import Tabs from '../components/Tabs';
+import React from "react";
+import ProductTabs from "../components/ProductTabs";
 
 const Products = () => {
-    return (
-        <div>
-            <h1>Products</h1>
-            <Tabs />
-        </div>
-    );
+  return (
+    <div>
+      <h1>Products page</h1>
+      <ProductTabs />
+    </div>
+  );
 };
 
 export default Products;

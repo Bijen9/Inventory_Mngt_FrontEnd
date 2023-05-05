@@ -3,7 +3,6 @@
     flex-direction: row;
     align-items: center;
     margin-bottom: 10px;
-
 }
 
 label {
@@ -13,47 +12,26 @@ label {
 }
 
 input,
-Select,
-textarea,
-.options {
+textarea {
     padding: 5px;
     font-size: 16px;
     border-radius: 5px;
     border: 1px solid #ccc;
     width: 30rem;
-    /* height: 2rem; */
-
 }
 
-.new-category-input {
-    display: flex;
-    width: 30rem;
-}
-
-.new-category-input input {
-    width: 30rem;
-}
-
-.new-category-input button {
-    margin-left: 10px;
-}
-
-button[type='submit'],
-.addbtn {
+button[type="submit"] {
     margin-top: 1rem;
     color: #fff;
-    background-color: #0B2447;
+    background-color: #0b2447;
     padding: 0.5rem 1rem;
     border: none;
     border-radius: 0.25rem;
-    transition-duration: 0.15s;
 }
 
-button[type='submit']:hover,
-.addbtn:hover {
+button[type="submit"]:hover {
     color: #fff;
     background-color: #0056b2;
-    transition-duration: 0.15s;
 }
 
 .required {
@@ -62,5 +40,4 @@ button[type='submit']:hover,
 
 .error-message {
     color: red;
-    font-style: italic;
 }

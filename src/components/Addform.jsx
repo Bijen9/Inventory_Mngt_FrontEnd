@@ -1,168 +1,208 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import Select from "react-select";
 import "../stylesheets/AddForm.css";
 
-function AddForm() {
+function AddProductForm() {
+  const [name, setName] = useState("");
+  const [description, setDescription] = useState("");
+  const [threshold, setThreshold] = useState("");
   const [category, setCategory] = useState("");
-  const [productName, setProductName] = useState("");
-  const [quantity, setQuantity] = useState("");
-  const [purchaseDate, setPurchaseDate] = useState("");
-  const [expiryDate, setExpiryDate] = useState("");
-  const [supplier, setSupplier] = useState("");
-  const [remarks, setRemarks] = useState("");
-  const [formErrors, setFormErrors] = useState({});
+  const [categories, setCategories] = useState([]);
+  const [newCategoryInput, setNewCategoryInput] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+  const [showErrors, setShowErrors] = useState(false);
+  const [showNewCategoryInput, setShowNewCategoryInput] = useState(false);
 
-  function handleSubmit(event) {
+  const handleCategoryChange = (selectedOption) => {
+    console.log("handleCategoryChange called");
+    const value = selectedOption.value;
+    if (value === "add_category") {
+      // If "Add Category" option is selected, show input field
+      setShowNewCategoryInput(true);
+    } else {
+      // Otherwise, set the selected category
+      setCategory(value);
+      setShowNewCategoryInput(false);
+    }
+  };
+
+  useEffect(() => {
+    const fetchCategories = async () => {
+      try {
+        // Fetch categories from the database
+        const response = await axios.get("/api/categories");
+        const categories = response.data;
+
+        setCategories(categories);
+      } catch (error) {
+        console.error(error);
+        setErrorMessage("Failed to fetch categories from the database.");
+      }
+    };
+
+    fetchCategories();
+  }, []);
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    let errors = {};
-    if (!category) {
-      errors.category = "Please select a category";
+    setErrorMessage("");
+
+    if (!name || !category) {
+      setShowErrors(true);
+      return;
     }
-    if (!productName) {
-      errors.productName = "Please enter the name of the product";
+
+    try {
+      // Check if product already exists in the database
+      const response = await axios.get(`/api/products?name=${name}`);
+      const product = response.data;
+      if (product) {
+        setErrorMessage("Product already exists in the database.");
+        return;
+      }
+
+      // Submit product to the database
+      const user = await axios.get("/api/current_user");
+      await axios.post("/api/products", {
+        name,
+        description,
+        threshold: threshold || 0,
+        category,
+        user: user.data.id,
+      });
+
+      // Reset form fields
+      setName("");
+      setDescription("");
+      setThreshold("");
+      setCategory("");
+
+      // Show success message
+      alert("Product successfully added to the database.");
+    } catch (error) {
+      console.error(error);
+      setErrorMessage("Failed to add product to the database.");
     }
-    if (!quantity) {
-      errors.quantity = "Please enter the quantity";
+  };
+
+  const handleNewCategorySubmit = async (event) => {
+    event.preventDefault();
+    setErrorMessage("");
+
+    try {
+      // Check if category already exists in the database
+      const response = await axios.get(
+        `/api/categories?name=${newCategoryInput}`
+      );
+      const category = response.data;
+      if (category) {
+        setErrorMessage("Category already exists in the database.");
+        return;
+      }
+
+      // Submit new category to the database
+      await axios.post("/api/categories", {
+        name: newCategoryInput,
+      });
+
+      // Add new category to the list of categories
+      setCategories([...categories, { name: newCategoryInput }]);
+
+      // Set the new category as selected
+      setCategory(newCategoryInput);
+
+      // Reset new category input
+      setNewCategoryInput("");
+
+      // Hide new category input
+      setShowNewCategoryInput(false);
+
+      // Show success message
+      alert("Category successfully added to the database.");
+    } catch (error) {
+      console.error(error);
+      setErrorMessage("Failed to add category to the database.");
     }
-    if (!purchaseDate) {
-      errors.purchaseDate = "Please select the purchase date";
-    }
-    if (!expiryDate) {
-      errors.expiryDate = "Please select the expiry date";
-    }
-    if (!supplier) {
-      errors.supplier = "Please select a supplier";
-    }
-    setFormErrors(errors);
-    if (Object.keys(errors).length === 0) {
-      // submit the form
-      alert("Form submitted!");
-    }
-  }
+  };
+
+  const categoryOptions = categories.map((category) => ({
+    value: category.name,
+    label: category.name,
+  }));
 
   return (
-    <div>
-      <h2>Add Product Form</h2>
-      <form onSubmit={handleSubmit} className="form">
-        <label htmlFor="category">
-          Category<span className="required">*</span>
+    <form onSubmit={handleSubmit}>
+      <div className="form-group">
+        <label>
+          Category:<span className="required">*</span>
         </label>
-        <div className="form-group">
-          <select
-            id="category"
-            name="category"
-            className="form-control"
-            value={category}
-            onChange={(event) => setCategory(event.target.value)}
-          >
-            <option value="">Select a category</option>
-            <option value="Electronics">Electronics</option>
-            <option value="Clothing">Clothing</option>
-            <option value="Furniture">Furniture</option>
-          </select>
-          {formErrors.category && (
-            <div className="error">{formErrors.category}</div>
-          )}
-        </div>
-        <label htmlFor="productName">
-          Name of Product<span className="required">*</span>
-        </label>
-        <div className="form-group">
-          <input
-            type="text"
-            id="productName"
-            name="productName"
-            className={`form-control ${formErrors.productName ? "error" : ""}`}
-            value={productName}
-            onChange={(event) => setProductName(event.target.value)}
+        {!showNewCategoryInput ? (
+          <Select
+            value={{ value: category, label: category }}
+            onChange={handleCategoryChange}
+            options={[
+              { value: "add_category", label: "Add Category" },
+              ...categoryOptions,
+            ]}
+            className="options"
+            required
           />
-          {formErrors.productName && (
-            <div className="error">{formErrors.productName}</div>
-          )}
-        </div>
-        <label htmlFor="quantity">
-          Quantity<span className="required">*</span>
+        ) : (
+          <div className="new-category-input">
+            <input
+              type="text"
+              value={newCategoryInput}
+              onChange={(event) => setNewCategoryInput(event.target.value)}
+              placeholder="Enter New Category Name"
+            />
+
+            <button onClick={handleNewCategorySubmit} className="addbtn">
+              Add
+            </button>
+          </div>
+        )}
+      </div>
+      {showErrors && !category && (
+        <p className="error-message">
+          Please select a category before submitting
+        </p>
+      )}
+      <div className="form-group">
+        <label>
+          Name:<span className="required">*</span>
         </label>
-        <div className="form-group">
-          <input
-            type="number"
-            id="quantity"
-            name="quantity"
-            className={`form-control ${formErrors.quantity ? "error" : ""}`}
-            value={quantity}
-            onChange={(event) => setQuantity(event.target.value)}
-          />
-          {formErrors.quantity && (
-            <div className="error">{formErrors.quantity}</div>
-          )}
-        </div>
-        <label htmlFor="purchaseDate">
-          Purchase Date<span className="required">*</span>
-        </label>
-        <div className="form-group">
-          <input
-            type="date"
-            id="purchaseDate"
-            name="purchaseDate"
-            className={`form-control ${formErrors.purchaseDate ? "error" : ""}`}
-            value={purchaseDate}
-            onChange={(event) => setPurchaseDate(event.target.value)}
-          />
-          {formErrors.purchaseDate && (
-            <div className="error">{formErrors.purchaseDate}</div>
-          )}
-        </div>
-        <label htmlFor="expiryDate">
-          Expiry Date<span className="required">*</span>
-        </label>
-        <div className="form-group">
-          <input
-            type="date"
-            id="expiryDate"
-            name="expiryDate"
-            className={`form-control ${formErrors.expiryDate ? "error" : ""}`}
-            value={expiryDate}
-            onChange={(event) => setExpiryDate(event.target.value)}
-          />
-          {formErrors.expiryDate && (
-            <div className="error">{formErrors.expiryDate}</div>
-          )}
-        </div>
-        <label htmlFor="supplier">
-          Supplier<span className="required">*</span>
-        </label>
-        <div className="form-group">
-          <select
-            id="supplier"
-            name="supplier"
-            className={`form-control ${formErrors.supplier ? "error" : ""}`}
-            value={supplier}
-            onChange={(event) => setSupplier(event.target.value)}
-          >
-            <option value="">Select a supplier</option>
-            <option value="ABC Company">ABC Company</option>
-            <option value="XYZ Company">XYZ Company</option>
-            <option value="PQR Company">PQR Company</option>
-          </select>
-          {formErrors.supplier && (
-            <div className="error">{formErrors.supplier}</div>
-          )}
-        </div>
-        <label htmlFor="remarks">Remarks</label>
-        <div className="form-group">
-          <textarea
-            id="remarks"
-            name="remarks"
-            className={`form-control ${formErrors.remarks ? "error" : ""}`}
-            value={remarks}
-            onChange={(event) => setRemarks(event.target.value)}
-          ></textarea>
-        </div>
-        <button type="submit" className="btn btn-primary">
-          Save
-        </button>
-      </form>
-    </div>
+        <input
+          type="text"
+          value={name}
+          onChange={(event) => setName(event.target.value)}
+          required
+        />
+      </div>
+      {showErrors && !name && (
+        <p className="error-message">Please enter name before submitting</p>
+      )}
+      <div className="form-group">
+        <label>Description:</label>
+        <textarea
+          value={description}
+          onChange={(event) => setDescription(event.target.value)}
+        />
+      </div>
+      <div className="form-group">
+        <label>Threshold:</label>
+        <input
+          type="number"
+          value={threshold}
+          onChange={(event) => setThreshold(event.target.value)}
+        />
+      </div>
+      <button type="submit" className="submitbtn">
+        Submit
+      </button>
+      {errorMessage && <p className="error-message">{errorMessage}</p>}
+    </form>
   );
 }
 
-export default AddForm;
+export default AddProductForm;
