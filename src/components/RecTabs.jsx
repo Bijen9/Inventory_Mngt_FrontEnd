@@ -3,7 +3,7 @@ import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
-import AddForm from "./Addform";
+import RecForm from "./RecForm";
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -23,7 +23,7 @@ function TabPanel(props: TabPanelProps) {
       {...other}
     >
       {value === index && (
-        <Box sx={{ p: 3 }}>
+        <Box sx={{ padding: "0" }}>
           <Typography>{children}</Typography>
         </Box>
       )}
@@ -46,19 +46,28 @@ export default function BasicTabs() {
   };
 
   return (
-    <Box sx={{ width: "100%" }}>
-      <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
+    <Box
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center", // Center the content horizontally
+        width: "100%",
+        marginTop: "25px",
+      }}
+    >
+      <Box>
         <Tabs
           value={value}
           onChange={handleChange}
           aria-label="basic tabs example"
+          centered // Center the tabs horizontally
         >
-          <Tab label="Add Products" {...a11yProps(0)} />
-          <Tab label="Edit Products" {...a11yProps(1)} />
+          <Tab label="Add Receivers" {...a11yProps(0)} />
+          <Tab label="Edit Receivers" {...a11yProps(1)} />
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
-        <AddForm />
+        <RecForm />
       </TabPanel>
       <TabPanel value={value} index={1}>
         Edit Products

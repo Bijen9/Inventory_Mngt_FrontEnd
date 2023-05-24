@@ -6,7 +6,7 @@ import { GoPackage } from "react-icons/go";
 import { RiUserReceived2Line } from "react-icons/ri";
 import { FaBars, FaCog } from "react-icons/fa";
 import { RxDashboard } from "react-icons/rx";
-import { VscArrowSwap } from"react-icons/vsc";
+import { VscArrowSwap } from "react-icons/vsc";
 import { NavLink } from "react-router-dom";
 import "../stylesheets/Sidebar.css";
 
@@ -52,14 +52,9 @@ const Sidebar = ({ children }) => {
   ];
   return (
     <div className="container">
-      <div style={{ width: isOpen ? "200px" : "50px" }} className="sidebar">
+      <div className="sidebar">
         <div className="top_section">
-          <h1 style={{ display: isOpen ? "block" : "none" }} className="logo">
-            Menu
-          </h1>
-          <div style={{ marginLeft: isOpen ? "50px" : "0px" }} className="bars">
-            <FaBars onClick={toggle} />
-          </div>
+          <h1 className="logo">Menu</h1>
         </div>
         {menuItem.map((item, index) => (
           <NavLink
@@ -69,12 +64,7 @@ const Sidebar = ({ children }) => {
             activeClassName="active"
           >
             <div className="icon">{item.icon}</div>
-            <div
-              style={{ display: isOpen ? "block" : "none" }}
-              className="link_text"
-            >
-              {item.name}
-            </div>
+            <div className="link_text">{item.name}</div>
           </NavLink>
         ))}
         <div className="settings">
@@ -91,4 +81,3 @@ const Sidebar = ({ children }) => {
 };
 
 export default Sidebar;
-

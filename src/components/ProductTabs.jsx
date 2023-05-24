@@ -21,10 +21,9 @@ function TabPanel(props: TabPanelProps) {
       hidden={value !== index}
       id={`simple-tabpanel-${index}`}
       aria-labelledby={`simple-tab-${index}`}
-      {...other}
     >
       {value === index && (
-        <Box sx={{ p: 3 }}>
+        <Box sx={{ padding: 0 }}>
           <Typography>{children}</Typography>
         </Box>
       )}
@@ -47,12 +46,21 @@ export default function BasicTabs() {
   };
 
   return (
-    <Box sx={{ width: "100%" }}>
-      <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
+    <Box
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        // alignItems: "center", // Center the content horizontally
+        width: "100%",
+        marginTop: "25px",
+      }}
+    >
+      <Box>
         <Tabs
           value={value}
           onChange={handleChange}
           aria-label="basic tabs example"
+          centered // Align the tabs in the center
         >
           <Tab label="Add Products" {...a11yProps(0)} />
           <Tab label="Edit Products" {...a11yProps(1)} />
