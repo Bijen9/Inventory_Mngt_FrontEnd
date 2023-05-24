@@ -12,13 +12,17 @@ label {
     width: 150px;
 }
 
+Select .shadow {
+    border-radius: 9px;
+}
+
 input,
 Select,
 textarea,
 .options {
     padding: 5px;
     font-size: 16px;
-    border-radius: 3px;
+    border-radius: 9px;
 
     /* border: 1px solid #ccc; */
     width: 30rem;
