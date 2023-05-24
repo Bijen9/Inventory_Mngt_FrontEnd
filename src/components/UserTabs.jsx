@@ -3,7 +3,6 @@ import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
-import UserForm from "./UserForm";
 import EditUser from "./EditUser";
 
 
@@ -52,15 +51,15 @@ export default function SupTabs() {
           onChange={handleChange}
           aria-label="basic tabs example"
         >
-          <Tab label="Add User" {...a11yProps(0)} />
+          <Tab label="Requests" {...a11yProps(0)} />
           <Tab label="Remove User" {...a11yProps(1)} />
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
-        <UserForm />
+        <EditUser type="request" />
       </TabPanel>
       <TabPanel value={value} index={1}>
-        <EditUser />
+        <EditUser type="user" />
       </TabPanel>
     </Box>
   );
