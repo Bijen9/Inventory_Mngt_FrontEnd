@@ -47,6 +47,7 @@ textarea,
 
 .new-category-input button {
     margin-left: 10px;
+    /* margin: center; */
 }
 
 button[type='submit'],

@@ -70,7 +70,7 @@ export default function BasicTabs() {
         <RecForm />
       </TabPanel>
       <TabPanel value={value} index={1}>
-        Edit Products
+        <EditReceiver />
       </TabPanel>
     </Box>
   );

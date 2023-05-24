@@ -4,7 +4,7 @@ import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import SupForm from "./SupForm";
-// import EditSup from "./EditSup";
+import EditSup from "./EditSup";
 
 interface TabPanelProps {
   children?: React.ReactNode;
