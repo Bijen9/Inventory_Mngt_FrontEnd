@@ -4,7 +4,7 @@ import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import SupForm from "./SupForm";
-// import EditSup from "./EditSup";
+import EditSup from "./EditSup";
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -59,8 +59,7 @@ export default function SupTabs() {
         <SupForm />
       </TabPanel>
       <TabPanel value={value} index={1}>
-        Edit Suppliers
-        {/* <EditSup /> */}
+        <EditSup />
       </TabPanel>
     </Box>
   );

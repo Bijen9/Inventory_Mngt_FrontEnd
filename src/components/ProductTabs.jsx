@@ -62,7 +62,6 @@ export default function BasicTabs() {
         <AddForm />
       </TabPanel>
       <TabPanel value={value} index={1}>
-        Edit Products
         <EditProducts />
       </TabPanel>
     </Box>

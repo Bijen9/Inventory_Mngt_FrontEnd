@@ -55,15 +55,16 @@ function EditProducts() {
   };
 
   return (
-    <div>
-      <h1>Edit Products</h1>
+    <div className="table-wrapper">
       <table>
         <thead>
           <tr>
             <th>S.N</th>
             <th>Name</th>
             <th>Category</th>
-            <th></th>
+            <th>Description</th>
+            <th>Threshold</th>
+            <th>Status</th>
           </tr>
         </thead>
         <tbody>
@@ -72,14 +73,28 @@ function EditProducts() {
               <td>{index + 1}</td>
               <td>{product.name}</td>
               <td>{product.category}</td>
+              <td>{product.description}</td>
+              <td>{product.threshold}</td>
               <td>
-                <button onClick={() => handleDelete(product)}>🗑️</button>
+              <button
+                  className="button"
+                  onClick={() => handleDelete(product.id)}
+                  >
+                  Edit
+                </button>
+                <button
+                className="button"
+                id="reject"
+                onClick={() => handleDelete(product.id)}
+                >
+                Delete
+              </button>
               </td>
             </tr>
           ))}
         </tbody>
       </table>
-
+    
       {showEditForm && (
         <div className="edit-form">
           <button onClick={() => setShowEditForm(false)}>❌</button>

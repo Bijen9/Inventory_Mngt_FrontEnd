@@ -4,6 +4,7 @@ import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import AddForm from "./Addform";
+import EditReceiver from "./EditReceiver";
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -53,15 +54,15 @@ export default function BasicTabs() {
           onChange={handleChange}
           aria-label="basic tabs example"
         >
-          <Tab label="Add Products" {...a11yProps(0)} />
-          <Tab label="Edit Products" {...a11yProps(1)} />
+          <Tab label="Add Receiver" {...a11yProps(0)} />
+          <Tab label="Edit Receiver" {...a11yProps(1)} />
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
         <AddForm />
       </TabPanel>
       <TabPanel value={value} index={1}>
-        Edit Products
+        <EditReceiver/>
       </TabPanel>
     </Box>
   );

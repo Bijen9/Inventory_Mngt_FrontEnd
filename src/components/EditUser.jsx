@@ -1,10 +1,25 @@
 import React, { useState } from "react";
 import "../stylesheets/editUser.css";
-const EditUser = () => {
+const EditUser = (props) => {
   const data = [
     { id: 1, name: "John", age: 25 },
     { id: 2, name: "Jane", age: 30 },
     { id: 3, name: "Bob", age: 35 },
+    { id: 4, name: "Alice", age: 28 },
+    { id: 4, name: "Alice", age: 28 },
+    { id: 4, name: "Alice", age: 28 },
+    { id: 4, name: "Alice", age: 28 },
+    { id: 4, name: "Alice", age: 28 },
+    { id: 4, name: "Alice", age: 28 },
+    { id: 4, name: "Alice", age: 28 },
+    { id: 4, name: "Alice", age: 28 },
+    { id: 4, name: "Alice", age: 28 },
+    { id: 4, name: "Alice", age: 28 },
+    { id: 4, name: "Alice", age: 28 },
+    { id: 4, name: "Alice", age: 28 },
+    { id: 4, name: "Alice", age: 28 },
+    { id: 4, name: "Alice", age: 28 },
+    { id: 4, name: "Alice", age: 28 },
     { id: 4, name: "Alice", age: 28 },
   ];
 
@@ -25,20 +40,20 @@ const EditUser = () => {
   };
 
   return (
-    <div>
+    <div className="table-wrapper">
       <input
         type="text"
         placeholder="Search by name"
         value={searchTerm}
         onChange={handleSearch}
       />
-      <table>
+      <table >
         <thead>
           <tr>
             <th>ID</th>
             <th>Name</th>
             <th>Age</th>
-            <th>Delete</th>
+            <th>Status</th>
           </tr>
         </thead>
         <tbody>
@@ -48,12 +63,30 @@ const EditUser = () => {
               <td>{item.name}</td>
               <td>{item.age}</td>
               <td>
+              {props.type ==="request" && 
+              <>
+              <button
+                  className="button"
+                  onClick={() => handleDelete(item.id)}
+                  >
+                  Accept
+                </button>
                 <button
+                className="button"
+                id="reject"
+                onClick={() => handleDelete(item.id)}
+                >
+                Reject
+              </button>
+                </>
+                }
+
+                {props.type ==="user" && <button
                   className="button"
                   onClick={() => handleDelete(item.id)}
                 >
                   Delete
-                </button>
+                </button>}
               </td>
             </tr>
           ))}
