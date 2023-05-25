@@ -12,7 +12,7 @@ const Historyin = (props) => {
       supplier: "Saraswati Traders",
     },
     {
-      id: 1,
+      id: 2,
       productname: "Pencil",
       quantity: 45,
       price: 200,
@@ -20,7 +20,7 @@ const Historyin = (props) => {
       supplier: "Saraswati Traders",
     },
     {
-      id: 1,
+      id: 3,
       productname: "Pencil",
       quantity: 45,
       price: 200,
@@ -28,7 +28,7 @@ const Historyin = (props) => {
       supplier: "Saraswati Traders",
     },
     {
-      id: 1,
+      id: 4,
       productname: "Pencil",
       quantity: 45,
       price: 200,
@@ -36,7 +36,7 @@ const Historyin = (props) => {
       supplier: "Saraswati Traders",
     },
     {
-      id: 1,
+      id: 5,
       productname: "Pencil",
       quantity: 45,
       price: 200,
@@ -44,7 +44,7 @@ const Historyin = (props) => {
       supplier: "Saraswati Traders",
     },
     {
-      id: 1,
+      id: 6,
       productname: "Pencil",
       quantity: 45,
       price: 200,
@@ -52,7 +52,7 @@ const Historyin = (props) => {
       supplier: "Saraswati Traders",
     },
     {
-      id: 1,
+      id: 7,
       productname: "Pencil",
       quantity: 45,
       price: 200,
@@ -60,7 +60,7 @@ const Historyin = (props) => {
       supplier: "Saraswati Traders",
     },
     {
-      id: 1,
+      id: 8,
       productname: "Pencil",
       quantity: 45,
       price: 200,
@@ -68,7 +68,7 @@ const Historyin = (props) => {
       supplier: "Saraswati Traders",
     },
     {
-      id: 1,
+      id: 9,
       productname: "Pencil",
       quantity: 45,
       price: 200,
@@ -76,7 +76,7 @@ const Historyin = (props) => {
       supplier: "Saraswati Traders",
     },
     {
-      id: 1,
+      id: 10,
       productname: "Eraser",
       quantity: 45,
       price: 200,

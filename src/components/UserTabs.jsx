@@ -59,7 +59,7 @@ export default function SupTabs() {
           centered
         >
           <Tab label="Requests" {...a11yProps(0)} />
-          <Tab label="Remove User" {...a11yProps(1)} />
+          <Tab label="Update User" {...a11yProps(1)} />
         </Tabs>
       </Box>
 

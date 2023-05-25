@@ -23,6 +23,62 @@ const EditProducts = (props) => {
       name: "ass",
       threshold: "1",
     },
+    {
+      id: 4,
+      name: "John",
+      location: "Dhulikhel",
+      phonenumber: 9842222222,
+      email: "abcd@gmail.com",
+    },
+    {
+      id: 5,
+      name: "Jane",
+      location: "Dhulikhel",
+      phonenumber: 9842222222,
+      email: "abcd@gmail.com",
+    },
+    {
+      id: 6,
+      name: "Bob",
+      location: "Dhulikhel",
+      phonenumber: 9842222222,
+      email: "abcd@gmail.com",
+    },
+    {
+      id: 7,
+      name: "Alice",
+      location: "Dhulikhel",
+      phonenumber: 9842222222,
+      email: "abcd@gmail.com",
+    },
+    {
+      id: 8,
+      name: "John",
+      location: "Dhulikhel",
+      phonenumber: 9842222222,
+      email: "abcd@gmail.com",
+    },
+    {
+      id: 9,
+      name: "Jane",
+      location: "Dhulikhel",
+      phonenumber: 9842222222,
+      email: "abcd@gmail.com",
+    },
+    {
+      id: 10,
+      name: "Bob",
+      location: "Dhulikhel",
+      phonenumber: 9842222222,
+      email: "abcd@gmail.com",
+    },
+    {
+      id: 11,
+      name: "Alice",
+      location: "Dhulikhel",
+      phonenumber: 9842222222,
+      email: "abcd@gmail.com",
+    },
     // ... rest of the data objects
   ];
 
