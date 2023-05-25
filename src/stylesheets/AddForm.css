@@ -61,6 +61,10 @@ button[type='submit'],
     transition-duration: 0.15s;
     vertical-align: auto;
     margin-top: 7.5px;
+<<<<<<< HEAD
+    margin-bottom: 10px;
+=======
+>>>>>>> 324155e2141403f635e7a86daaa4715c2ffada98
 }
 
 button[type='submit']:hover,

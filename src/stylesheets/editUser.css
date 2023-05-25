@@ -1,6 +1,8 @@
 table {
   border-collapse: collapse;
   width: 100%;
+<<<<<<< HEAD
+=======
 }
 
 th,
@@ -44,6 +46,7 @@ button {
 
 .button:hover {
   color: #fff;
+>>>>>>> 324155e2141403f635e7a86daaa4715c2ffada98
 }
 
 th,
@@ -56,18 +59,92 @@ td {
 th {
   background-color: #f2f2f2;
   font-weight: bold;
+  position: sticky;
+  top: 0px;
+}
+
+.table-wrapper {
+  max-height: 400px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  position: relative;
+  width: 80%;
+  margin: 0 auto;
+  border: solid 3px #637899;
+  margin-bottom: 10px;
+}
+
+thead {
+  position: sticky;
 }
 
 input {
   margin-bottom: 16px;
   padding: 8px;
-  width: 200px;
 }
 
 
+button {
+  margin-left: 8px;
+}
+
+/* #reject {
+  background-color: red; */
+/* } */
+
 .button:hover {
   color: #fff;
+<<<<<<< HEAD
+}
+
+
+.table-wrapper input[type="text"] {
+  position: sticky;
+  bottom: 0;
+  right: 0;
+  border: solid 1px grey;
+  border-radius: 0;
+  /* overflow-x: hidden; */
+  width: 830px;
+  align-self: right;
+  margin-left: 10px;
+  margin-right: 50px;
+}
+
+.table-wrapper input[type="text"] :active {
+  border-radius: 0;
+}
+
+.icon-button {
+  background: red;
+  border: none;
+  cursor: pointer;
+  padding: 3px;
+  margin: 0;
+  color: none;
+}
+
+.tick-button {
+  background: green;
+  border: none;
+  cursor: pointer;
+  padding: 3px;
+  margin-right: 5px;
+  color: none;
+}
+
+.icon-button:focus {
+  outline: none;
+}
+
+.icon-button svg {
+  width: 16px;
+  height: 16px;
+  vertical-align: middle;
+}
+=======
   background-color: red;
 }
 
 */
+>>>>>>> 324155e2141403f635e7a86daaa4715c2ffada98
