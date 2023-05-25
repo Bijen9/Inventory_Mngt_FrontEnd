@@ -141,6 +141,7 @@ function AddProductForm() {
           <Select
             value={{ value: category, label: category }}
             onChange={handleCategoryChange}
+            class="shadow"
             options={[
               { value: "add_category", label: "Add Category" },
               ...categoryOptions,
@@ -151,6 +152,7 @@ function AddProductForm() {
         ) : (
           <div className="new-category-input">
             <input
+              class="shadow"
               type="text"
               value={newCategoryInput}
               onChange={(event) => setNewCategoryInput(event.target.value)}
@@ -175,6 +177,7 @@ function AddProductForm() {
         <input
           type="text"
           value={name}
+          class="shadow"
           onChange={(event) => setName(event.target.value)}
           required
         />
@@ -194,6 +197,7 @@ function AddProductForm() {
         <input
           type="number"
           value={threshold}
+          class="shadow"
           onChange={(event) => setThreshold(event.target.value)}
         />
       </div>

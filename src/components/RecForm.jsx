@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import "../stylesheets/SupForm.css";
 
-function SupForm() {
+function RecForm() {
   const [name, setName] = useState("");
   const [location, setLocation] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
@@ -22,14 +22,14 @@ function SupForm() {
     try {
       // Check if supplier already exists in the database
       const response = await axios.get(`/api/suppliers?name=${name}`);
-      const supplier = response.data;
-      if (supplier) {
+      const receiver = response.data;
+      if (receiver) {
         setErrorMessage("Supplier already exists in the database.");
         return;
       }
 
       // Submit supplier to the database
-      await axios.post("/api/suppliers", {
+      await axios.post("/api/receivers", {
         name,
         location,
         phoneNumber,
@@ -43,10 +43,10 @@ function SupForm() {
       setEmail("");
 
       // Show success message
-      alert("Supplier successfully added to the database.");
+      alert("Receiver successfully added to the database.");
     } catch (error) {
       console.error(error);
-      setErrorMessage("Failed to add supplier to the database.");
+      setErrorMessage("Failed to add receiver to the database.");
     }
   };
 
@@ -110,4 +110,4 @@ function SupForm() {
   );
 }
 
-export default SupForm;
+export default RecForm;

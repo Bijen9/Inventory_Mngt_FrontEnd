@@ -20,10 +20,10 @@ function TabPanel(props: TabPanelProps) {
       hidden={value !== index}
       id={`simple-tabpanel-${index}`}
       aria-labelledby={`simple-tab-${index}`}
-      {...other}
+      sx={{ padding: "0" }}
     >
       {value === index && (
-        <Box sx={{ p: 3 }}>
+        <Box sx={{ padding: "0" }}>
           <Typography>{children}</Typography>
         </Box>
       )}
@@ -44,12 +44,21 @@ export default function SupTabs() {
     setValue(newValue);
   };
   return (
-    <Box sx={{ width: "100%" }}>
-      <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
+    <Box
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center", // Center the content horizontally
+        width: "100%",
+        marginTop: "25px",
+      }}
+    >
+      <Box>
         <Tabs
           value={value}
           onChange={handleChange}
           aria-label="basic tabs example"
+          centered // Center the tabs horizontally
         >
           <Tab label="Add Suppliers" {...a11yProps(0)} />
           <Tab label="Edit Suppliers" {...a11yProps(1)} />
@@ -59,7 +68,7 @@ export default function SupTabs() {
         <SupForm />
       </TabPanel>
       <TabPanel value={value} index={1}>
-        <EditSup />
+        Edit Products
       </TabPanel>
     </Box>
   );

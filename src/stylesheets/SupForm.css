@@ -14,24 +14,16 @@ label {
 input,
 textarea {
     padding: 5px;
-    font-size: 16px;
+    font-size: 40px;
     border-radius: 5px;
     border: 1px solid #ccc;
-    width: 30rem;
 }
 
-button[type="submit"] {
-    margin-top: 1rem;
-    color: #fff;
-    background-color: #0b2447;
-    padding: 0.5rem 1rem;
-    border: none;
-    border-radius: 0.25rem;
-}
+
 
 button[type="submit"]:hover {
     color: #fff;
-    background-color: #0056b2;
+    /* background-color: #0056b2; */
 }
 
 .required {
@@ -40,4 +32,27 @@ button[type="submit"]:hover {
 
 .error-message {
     color: red;
+}
+
+.form-container {
+    display: flex;
+    justify-content: center;
+    padding: 0;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: solid 3px #637899;
+    /* background-color: #F7F9FF; */
+    width: 60%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin: 0 auto;
+    /* Center the form horizontally */
+}
+
+.submitbtn {
+    margin-top: 1rem;
 }

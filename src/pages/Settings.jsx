@@ -1,12 +1,11 @@
-import React from 'react';
-import { createBrowserHistory } from 'history';
+import React from "react";
+import { createBrowserHistory } from "history";
 import "../stylesheets/Settings.css";
 
 const Settings = () => {
-    const history = createBrowserHistory();
+  const history = createBrowserHistory();
 
-    const handleLogout = () => {
-    };
+  const handleLogout = () => {};
 
   const handleChangePassword = () => {
     // code to handle change password
@@ -36,4 +35,3 @@ const Settings = () => {
 };
 
 export default Settings;
-
