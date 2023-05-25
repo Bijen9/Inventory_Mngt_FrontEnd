@@ -4,10 +4,7 @@ import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import RecForm from "./RecForm";
-<<<<<<< HEAD
 import EditReceiver from "./EditReceiver";
-=======
->>>>>>> 324155e2141403f635e7a86daaa4715c2ffada98
 
 interface TabPanelProps {
   children?: React.ReactNode;

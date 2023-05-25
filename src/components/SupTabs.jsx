@@ -68,11 +68,7 @@ export default function SupTabs() {
         <SupForm />
       </TabPanel>
       <TabPanel value={value} index={1}>
-<<<<<<< HEAD
         <EditSup />
-=======
-        Edit Products
->>>>>>> 324155e2141403f635e7a86daaa4715c2ffada98
       </TabPanel>
     </Box>
   );

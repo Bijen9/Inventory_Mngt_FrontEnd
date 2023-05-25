@@ -1,14 +1,7 @@
-<<<<<<< HEAD
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
 import "../stylesheets/EditSup.css";
-=======
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-import AddProductForm from "./Addform";
-import "../stylesheets/EditProducts.css";
->>>>>>> 324155e2141403f635e7a86daaa4715c2ffada98
 
 const EditProducts = (props) => {
   const data = [

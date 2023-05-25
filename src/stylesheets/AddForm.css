@@ -12,17 +12,13 @@ label {
     width: 150px;
 }
 
-Select .shadow {
-    border-radius: 9px;
-}
-
 input,
 Select,
 textarea,
 .options {
     padding: 5px;
     font-size: 16px;
-    border-radius: 9px;
+    border-radius: 3px;
 
     /* border: 1px solid #ccc; */
     width: 30rem;
@@ -61,10 +57,7 @@ button[type='submit'],
     transition-duration: 0.15s;
     vertical-align: auto;
     margin-top: 7.5px;
-<<<<<<< HEAD
     margin-bottom: 10px;
-=======
->>>>>>> 324155e2141403f635e7a86daaa4715c2ffada98
 }
 
 button[type='submit']:hover,

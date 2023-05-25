@@ -1,52 +1,6 @@
 table {
   border-collapse: collapse;
   width: 100%;
-<<<<<<< HEAD
-=======
-}
-
-th,
-td {
-  border: 1px solid #ddd;
-  padding: 8px;
-  text-align: center;
-}
-
-th {
-  background-color: #f2f2f2;
-  font-weight: bold;
-  position: sticky;
-  top: 0px;
-}
-
-.table-wrapper {
-  max-height: 425px;
-  overflow-y: scroll;
-  position: sticky;
-}
-
-thead {
-  position: sticky;
-}
-
-input {
-  margin-bottom: 16px;
-  padding: 8px;
-  width: 200px;
-}
-
-
-button {
-  margin-left: 8px;
-}
-
-#reject {
-  background-color: red;
-}
-
-.button:hover {
-  color: #fff;
->>>>>>> 324155e2141403f635e7a86daaa4715c2ffada98
 }
 
 th,
@@ -94,7 +48,6 @@ button {
 
 .button:hover {
   color: #fff;
-<<<<<<< HEAD
 }
 
 
@@ -142,9 +95,3 @@ button {
   height: 16px;
   vertical-align: middle;
 }
-=======
-  background-color: red;
-}
-
-*/
->>>>>>> 324155e2141403f635e7a86daaa4715c2ffada98
